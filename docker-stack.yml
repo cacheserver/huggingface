@@ -1,0 +1,12 @@
+services:
+  cache-server:
+    image: chocolatefrappe/huggingface-cache-proxy:dev
+    ports:
+      - 36080:80
+    volumes:
+      - type: volume
+        source: cache
+        target: /cache
+
+volumes:
+  cache:
