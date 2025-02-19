@@ -1,5 +1,5 @@
 ## About
-This is a cache server for the Hugging Face model hub. It is designed to cache models and datasets from the Hugging Face model hub to reduce the load on the Hugging Face servers and speed up downloads for users.
+This is a cache server for the <a href="https://huggingface.co/">huggingface.co</a> hub. It is designed to cache models and datasets from the <a href="https://huggingface.co/">huggingface.co</a> hub to reduce the load on the Hugging Face servers and speed up downloads for users.
 
 ## Using with `exo` software
 
