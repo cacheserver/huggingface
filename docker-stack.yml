@@ -1,12 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/swarmlibs/dockerstack-schema/main/schema/dockerstack-spec.json
-
 services:
-  cache-server:
-    image: chocolatefrappe/huggingface-cache-proxy:dev
+  huggingface:
+    image: chocolatefrappe/huggingface-cache-server:dev
     ports:
       - 36080:36080
     volumes:
-      - cache:/var/lib/huggingface
+      - data:/var/lib/huggingface
     stop_grace_period: 1m
 volumes:
-  cache:
+  data:

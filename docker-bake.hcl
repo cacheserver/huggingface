@@ -1,6 +1,6 @@
 target "default" {}
 target "dev" {
     tags = [
-        "chocolatefrappe/huggingface-cache-proxy:dev"
+        "chocolatefrappe/huggingface-cache-server:dev"
     ]
 }
