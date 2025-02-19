@@ -1,3 +1,3 @@
 FROM nginx:stable-alpine
 ADD rootfs /
-VOLUME [ "/cache" ]
+VOLUME [ "/var/lib/huggingface" ]
