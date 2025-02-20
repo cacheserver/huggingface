@@ -1,11 +1,16 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/swarmlibs/dockerstack-schema/main/schema/dockerstack-spec.json
 services:
-  huggingface:
+  huggingface-cache-server:
     image: chocolatefrappe/huggingface-cache-server:dev
     ports:
-      - 36080:36080
+      - mode: ingress
+        target: 36080
+        published: 36080
+        protocol: tcp
     volumes:
-      - data:/var/lib/huggingface
+      - type: volume
+        source: huggingface-cache
+        target: /var/lib/huggingface
     stop_grace_period: 1m
     deploy:
       update_config:
@@ -13,4 +18,4 @@ services:
       rollback_config:
         order: start-first
 volumes:
-  data:
+  huggingface-cache:
