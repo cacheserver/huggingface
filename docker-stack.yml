@@ -2,8 +2,13 @@
 services:
   huggingface:
     image: chocolatefrappe/huggingface-cache-server:dev
+    environment:
+      - TZ=Asia/Phnom_Penh
     ports:
-      - 36080:36080
+      - mode: host
+        target: 36080
+        published: 36080
+        protocol: tcp
     volumes:
       - data:/var/lib/huggingface
     stop_grace_period: 1m
