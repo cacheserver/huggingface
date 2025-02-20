@@ -3,7 +3,7 @@ services:
   huggingface:
     image: chocolatefrappe/huggingface-cache-server:dev
     ports:
-      - 36080:80
+      - 36080:36080
     volumes:
       - data:/var/lib/huggingface
     stop_grace_period: 1m
