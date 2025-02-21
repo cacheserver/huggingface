@@ -28,7 +28,7 @@ map $request_uri $cache_bypass {
 
 # Hugging Face - The AI community building the future.
 server {
-    listen 36080;
+    listen ${PORT};
     server_name _;
 
     access_log /var/log/nginx/access.log cachelog;
