@@ -149,7 +149,7 @@ server {
         # Cache status
         add_header X-Cache-Status $upstream_cache_status;
         proxy_ignore_headers Expires Cache-Control Set-Cookie Vary;
-        # proxy_ignore_client_abort on;
+        proxy_ignore_client_abort on;
 
         # Buffering configuration
         proxy_buffering     on;

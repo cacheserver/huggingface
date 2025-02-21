@@ -29,7 +29,7 @@ services:
     restart: always
 volumes:
   huggingface-cache:
-```     
+```
 
 ## Using with `exo` software
 
