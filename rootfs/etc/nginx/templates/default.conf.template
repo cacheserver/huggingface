@@ -132,7 +132,7 @@ server {
         proxy_cache_key "${huggingface_cdn_host}${cleaned_uri}${slice_range}";
         add_header X-Cache-Key "${huggingface_cdn_host}${cleaned_uri}${slice_range}";
         proxy_cache_methods GET;
-        proxy_cache_valid 200 206 1h;
+        proxy_cache_valid 200 206 365d;
         proxy_cache_valid 301 302 0;
         proxy_set_header Range $slice_range;
         proxy_cache_lock on;
