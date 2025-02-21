@@ -11,7 +11,7 @@ services:
       - type: volume
         source: huggingface-cache
         target: /var/lib/huggingface
-    stop_grace_period: 1m
+    stop_grace_period: 5m
     deploy:
       update_config:
         order: start-first

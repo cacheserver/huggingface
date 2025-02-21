@@ -10,7 +10,7 @@ services:
       - type: volume
         source: huggingface-cache
         target: /var/lib/huggingface
-    stop_grace_period: 1m
+    stop_grace_period: 5m
     restart: always
 volumes:
   huggingface-cache:
