@@ -132,17 +132,17 @@ server {
         proxy_cache_lock on;
         proxy_cache_lock_age 5m;
         proxy_cache_lock_timeout 2h;
-        proxy_cache_use_stale updating error timeout invalid_header http_500 http_502 http_503 http_504;
-        proxy_cache_revalidate on;
+        proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
+        proxy_cache_revalidate off;
 
         # Nocache for those entries
         proxy_no_cache $cache_bypass;
         proxy_cache_bypass $cache_bypass;
-        proxy_max_temp_file_size 1024m;
+        proxy_max_temp_file_size 0;
 
         # Cache status
         add_header X-Cache-Status $upstream_cache_status;
-        proxy_ignore_headers Expires Cache-Control Set-Cookie Vary;
+        proxy_ignore_headers Expires Cache-Control;
         proxy_ignore_client_abort on;
 
         # Buffering configuration
@@ -157,10 +157,10 @@ server {
         proxy_send_timeout    60s;
 
         set $huggingface_cdn_proxy_pass "${huggingface_cdn_scheme}://${huggingface_cdn_host}${huggingface_cdn_request_uri}";
-        proxy_http_version 1.1;
         proxy_pass $huggingface_cdn_proxy_pass;
-        proxy_set_header Host "${huggingface_cdn_host}";
+        proxy_http_version 1.1;
         proxy_set_header Connection "";
+        proxy_set_header Host "${huggingface_cdn_host}";
     }
 
     location / {
