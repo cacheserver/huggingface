@@ -22,7 +22,7 @@ map $request_uri $cache_bypass {
 
 # Hugging Face - The AI community building the future.
 server {
-    listen ${PORT};
+    listen ${PORT} default_server;
     server_name _;
 
     access_log /var/log/nginx/access.log cachelog;
@@ -121,14 +121,16 @@ server {
         # Rewrite the request to remove the /-/pull/<target> prefix
         rewrite ^/-/pull/(https?)://([^/]+)(/.*)$ $3 break;
 
+        # Slice configuration
+        slice 10m;
+        proxy_set_header Range $slice_range;
+
         # Cache configuration
-        slice 1m;
         proxy_cache_key "${huggingface_cdn_host}${cleaned_uri}${slice_range}";
         add_header X-Cache-Key "${huggingface_cdn_host}${cleaned_uri}${slice_range}";
         proxy_cache_methods GET;
         proxy_cache_valid 200 206 365d;
         proxy_cache_valid 301 302 0;
-        proxy_set_header Range $slice_range;
         proxy_cache_lock on;
         proxy_cache_lock_age 5m;
         proxy_cache_lock_timeout 2h;

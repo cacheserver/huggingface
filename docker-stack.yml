@@ -3,7 +3,7 @@ services:
   huggingface-cache-server:
     image: chocolatefrappe/huggingface-cache-server:dev
     ports:
-      - mode: ingress
+      - mode: host
         target: 36080
         published: 36080
         protocol: tcp
@@ -11,6 +11,8 @@ services:
       - type: volume
         source: huggingface-cache
         target: /var/lib/huggingface
+      - type: tmpfs
+        target: /var/cache/nginx
     stop_grace_period: 5m
     deploy:
       update_config:
