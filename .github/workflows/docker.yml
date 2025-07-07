@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   docker:
-    uses: chocolatefrappe/workflows/.github/workflows/use-docker.yml@main
+    uses: cacheserver/workflows/.github/workflows/use-docker.yml@main
     permissions:
       contents: read
       packages: write
