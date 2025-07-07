@@ -3,7 +3,7 @@ log_format cachelog '$time_local [request]: $remote_addr - $remote_user "$reques
 
 # Cache configuration
 proxy_cache_path /var/lib/huggingface
-    keys_zone=huggingface:10m
+    keys_zone=huggingface:64m
     levels=2:2
     inactive=90d
     loader_files=64
