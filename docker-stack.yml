@@ -3,10 +3,7 @@ services:
   huggingface-cache-server:
     image: chocolatefrappe/huggingface-cacheserver:dev
     ports:
-      - mode: host
-        target: 36080
-        published: 36080
-        protocol: tcp
+      - 36080:36080
     volumes:
       - type: volume
         source: cache
