@@ -7,7 +7,7 @@ The cache server listens on port 36080 by default. You can change the port by se
 
 To run the cache server, you can use the following command:
 ```bash
-docker run -p 36080:36080 -v /path/to/cache:/var/lib/huggingface -d chocolatefrappe/huggingface-cache-server:main
+docker run -p 36080:36080 -v /path/to/cache:/var/cache/huggingface -d chocolatefrappe/huggingface-cacheserver:main
 ```
 
 or via Docker Compose:
@@ -15,7 +15,7 @@ or via Docker Compose:
 ```yaml
 services:
   huggingface-cache-server:
-    image: chocolatefrappe/huggingface-cache-server:dev
+    image: chocolatefrappe/huggingface-cacheserver:dev
     ports:
       - mode: ingress
         target: 36080
@@ -24,7 +24,7 @@ services:
     volumes:
       - type: volume
         source: huggingface-cache
-        target: /var/lib/huggingface
+        target: /var/cache/huggingface
     stop_grace_period: 1m
     restart: always
 volumes:

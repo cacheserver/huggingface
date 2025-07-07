@@ -1,6 +1,6 @@
 services:
   huggingface-cache-server:
-    image: chocolatefrappe/huggingface-cache-server:dev
+    image: chocolatefrappe/huggingface-cacheserver:dev
     ports:
       - mode: ingress
         target: 36080
@@ -9,7 +9,7 @@ services:
     volumes:
       - type: volume
         source: huggingface-cache
-        target: /var/lib/huggingface
+        target: /var/cache/huggingface
     stop_grace_period: 5m
     restart: always
 volumes:

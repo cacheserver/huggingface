@@ -2,7 +2,7 @@
 log_format cachelog '$time_local [request]: $remote_addr - $remote_user "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$upstream_cache_status"';
 
 # Cache configuration
-proxy_cache_path /var/lib/huggingface
+proxy_cache_path /var/cache/huggingface
     keys_zone=huggingface:64m
     levels=2:2
     inactive=90d
