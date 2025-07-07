@@ -1,4 +1,4 @@
-name: Build
+name: Docker
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  docker:
     uses: chocolatefrappe/workflows/.github/workflows/use-docker.yml@main
     permissions:
       contents: read
