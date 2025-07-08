@@ -14,6 +14,6 @@ target "default" {
 
 target "dev" {
     tags = [
-        "chocolatefrappe/huggingface-cacheserver:dev"
+        "ghcr.io/cacheserver/huggingface:dev"
     ]
 }

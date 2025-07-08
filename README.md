@@ -15,7 +15,7 @@ or via Docker Compose:
 ```yaml
 services:
   huggingface-cache-server:
-    image: chocolatefrappe/huggingface-cacheserver:dev
+    image: ghcr.io/cacheserver/huggingface:dev
     ports:
       - mode: ingress
         target: 36080

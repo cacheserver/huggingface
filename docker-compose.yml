@@ -1,0 +1,16 @@
+services:
+  cacheserver:
+    image: ghcr.io/cacheserver/huggingface:main
+    restart: always
+    stop_grace_period: 5m
+    environment:
+      - DOMAIN=local
+      - PORT=80
+    ports:
+      - 80:80
+    volumes:
+      - type: volume
+        source: cache
+        target: /var/cache/huggingface
+volumes:
+  cache:
